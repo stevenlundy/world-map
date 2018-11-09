@@ -1,0 +1,26 @@
+    .country {
+      fill: #ddd;
+      stroke: #888;
+      stroke-width: 0.03;
+      stroke-linejoin: round;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .country:hover {
+      fill: #A8BED5;
+    }
+    .guessed {
+      fill: #537eac;
+    }
+    .active {
+      fill: #904f90;
+    }
+    .active:hover {
+      fill: #904f90;
+    }
+    #country-input {
+      position: absolute;
+      font-size: 150%;
+      top: 50px;
+      left: 50px;
+    }
