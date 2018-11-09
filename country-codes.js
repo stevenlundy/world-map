@@ -71,8 +71,8 @@ c = {
    "DJI":"Djibouti",
    "DMA":"Dominica",
    "DNK":"Denmark",
-   "DNK1":"Greenland",
-   "DNK2":"Faroe Islands",
+   "DNK1":"Greenland", // GRL
+   "DNK2":"Faroe Islands", // FRO
    "DNK3":"Denmark",
    "DOM":"Dominican Republic",
    "DZA":"Algeria",
@@ -215,7 +215,7 @@ c = {
    "NZL":"New Zealand",
    "NZL1":"Cook Islands", // COK
    "NZL2":"Niue", //NIU
-   "NZL3":"9", // "TKL":"Tokelau",
+   "NZL3":"Tokelau", // "TKL":"Tokelau",
    "NZL4":"New Zealand",
    "OMN":"Oman",
    "PAK":"Pakistan",
@@ -288,7 +288,7 @@ c = {
    "USA3":"U.S. Virgin Islands", // VIR
    "USA4":"Puerto Rico", // PRI
    "USA5":"Guam", // GUM
-   "USA6":"Northern Mariana Islands",
+   "USA6":"Northern Mariana Islands", // MNP
    "UZB":"Uzbekistan",
    "VAT":"Holy See", // Vatican
    "VCT":"Saint Vincent and the Grenadines",
