@@ -11,7 +11,7 @@
   <body>
     <div id="app">
       <form v-on:submit.prevent="selectRandomUnnamedCountry()">
-        <input id="country-input" type="text" v-model="guesses[selectedCountry.country]" autofocus v-on:change="saveGuesses()">
+        <input id="country-input" type="text" v-model="guesses[selectedCountry.country]" autofocus v-on:change="saveGuesses()" autocomplete="off">
       </form>
       <svg id="world-map" baseProfile="full" width="1400" height="700" viewBox="75 20 170 85">
         <g transform="translate(180, 90) scale(1, -1)">
