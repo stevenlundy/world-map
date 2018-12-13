@@ -13,13 +13,17 @@
       <form v-on:submit.prevent="selectRandomUnnamedCountry()">
         <input id="country-input" type="text" v-model="guesses[selectedCountry.country]" autofocus v-on:change="saveGuesses()">
       </form>
-      <svg id="world-map" baseProfile="full" width="1400" height="700" viewBox="0 0 360 180">
+      <svg id="world-map" baseProfile="full" width="1400" height="700" viewBox="75 20 170 85">
         <g transform="translate(180, 90) scale(1, -1)">
           <g class="country" v-for="(c, i) in countries" v-bind:class="{ active: isSelected(c), guessed: hasGuess(c)}">
             <path :d="c.svgPath" v-on:click="selectCountry(c)"></path>
           </g>
         </g>
       </svg>
+      <form v-on:submit.prevent="">
+        <input id="name" type="text" v-model="userName" placeholder="Your Name" required="true">
+        <button type="submit" v-on:click="submitGuesses()">Submit Guesses</button>
+      </form>
     </div>
     <script src="countries.js"></script>
     <script src="index.js"></script>
