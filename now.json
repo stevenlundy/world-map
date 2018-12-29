@@ -1,5 +1,8 @@
 {
     "version": 2,
     "name": "World Map",
-    "alias": "mailing.captainsometimes.com"
+    "alias": "mailing.captainsometimes.com",
+    "routes": [
+        { "src": "/(.*)", "dest": "/www/$1" }
+    ]
 }
