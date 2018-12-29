@@ -1,0 +1,6 @@
+{
+  "main": "score.js",
+  "dependencies": {
+    "body-parser": "^1.18.3"
+  }
+}

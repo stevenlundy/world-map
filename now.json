@@ -2,7 +2,12 @@
     "version": 2,
     "name": "World Map",
     "alias": "mailing.captainsometimes.com",
+    "builds": [
+        { "src": "api/*.js", "use": "@now/node" },
+        { "src": "www/**", "use": "@now/static" }
+    ],
     "routes": [
+        { "src": "/api/score", "dest": "/api/score.js" },
         { "src": "/(.*)", "dest": "/www/$1" }
     ]
 }

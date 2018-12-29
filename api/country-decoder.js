@@ -1,4 +1,4 @@
-countryDecoderKey = {
+module.exports = {
     "key_100": "MNG",
     "key_101": "URY",
     "key_102": "SVK",
@@ -237,5 +237,5 @@ countryDecoderKey = {
     "key_335": "GGY",
     "key_336": "TJK",
     "key_337": "BLM",
-    "key_338":"ZWE"
+    "key_338": "ZWE"
 }
