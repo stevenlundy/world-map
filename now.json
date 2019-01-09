@@ -1,7 +1,7 @@
 {
     "version": 2,
     "name": "World Map",
-    "alias": "mailing.captainsometimes.com",
+    "alias": ["mailing.captainsometimes.com", "worldmap.lundy.xyz"],
     "builds": [
         { "src": "api/*.js", "use": "@now/node" },
         { "src": "www/**", "use": "@now/static" }
