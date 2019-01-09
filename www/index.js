@@ -1,4 +1,4 @@
-const FORM_SUBMIT_URL = "https://script.google.com/macros/s/AKfycbzMcwFTm3lC43zM-GPT09iql5_GJAo99hu42YQZj7y1yrVVhu4/exec";
+const FORM_SUBMIT_URL = "/api/score";
 
 let storage = {
   _store: {},
@@ -67,17 +67,18 @@ let app = new Vue({
     submitGuesses: function() {
       if (!this.userName) return;
       if (!confirm("Are you sure you want to submit your guesses?")) return;
-      let data = Object.assign({}, this.guesses);
+      let data = {};
+      data.guesses = Object.assign({}, this.guesses);
       data.name = this.userName;
       return fetch(FORM_SUBMIT_URL, {
           method: "POST", // *GET, POST, PUT, DELETE, etc.
-          mode: 'no-cors',
+          mode: 'cors',
           cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
           headers: {
               "Content-Type": "application/json; charset=utf-8",
           },
           body: JSON.stringify(data), // body data type must match "Content-Type" header
-      }).then(r => {
+      }).then(r => r.json()).then(r => {
         storage.clear();
         this.guesses = {};
       })
