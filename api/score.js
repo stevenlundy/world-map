@@ -1,8 +1,10 @@
 const bodyParser = require('body-parser')
 const jsonParser = bodyParser.json()
+const fetch = require('node-fetch')
 
 const countryMappings = require('./country-decoder')
 const countryCodes = require('./country-codes')
+const FORM_SUBMIT_URL = "https://script.google.com/macros/s/AKfycbzMcwFTm3lC43zM-GPT09iql5_GJAo99hu42YQZj7y1yrVVhu4/exec"
 
 function scoreGuesses(guesses) {
   let correctAnswers = [];
@@ -21,13 +23,33 @@ function scoreGuesses(guesses) {
   return {correctAnswers, incorrectAnswers};
 }
 
+function submitGuesses(name, guesses, score) {
+  let data = {};
+  for (let key in countryMappings) {
+    data[key] = guesses[key] || "";
+  }
+  data.name = name;
+  data.score = score;
+  return fetch(FORM_SUBMIT_URL, {
+      method: "POST",
+      mode: 'no-cors',
+      cache: "no-cache",
+      headers: {
+          "Content-Type": "application/json; charset=utf-8",
+      },
+      body: JSON.stringify(data), // body data type must match "Content-Type" header
+  })
+}
+
 module.exports = (req, res) => {
   jsonParser(req, res, function(err) {
     if (err) {
       console.log(err)
     } else {
       let {correctAnswers, incorrectAnswers} = scoreGuesses(req.body.guesses);
-      res.end(JSON.stringify({correct: correctAnswers, incorrect: incorrectAnswers}));
+      submitGuesses(req.body.name, req.body.guesses, correctAnswers.length).then(function() {
+        res.end(JSON.stringify({correct: correctAnswers, incorrect: incorrectAnswers}));
+      })
     }
   })
 };

@@ -1,6 +1,7 @@
 {
   "main": "score.js",
   "dependencies": {
-    "body-parser": "^1.18.3"
+    "body-parser": "^1.18.3",
+    "node-fetch": "^2.3.0"
   }
 }
